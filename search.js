@@ -18,6 +18,7 @@ export default class Search {
      * @param {string} valueSearchBar 
      */
     applyFilters(valueSearchBar) {
+        let i = 0
         if (valueSearchBar === undefined || valueSearchBar === null) {
             valueSearchBar = document.querySelector("#searchBar input").value.trim().toLowerCase()
         }
@@ -35,7 +36,6 @@ export default class Search {
         if (valueSearchBar != "") {
             this.updatedList = this.applySearchBar(valueSearchBar)
         }
-
         /*
         after create the new list of recipe, update arrays and dom
         */
