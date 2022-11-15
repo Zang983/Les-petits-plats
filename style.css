@@ -1,0 +1,287 @@
+*,*::after,*::before{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+ul li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+body{
+    font-family:'Lato',Arial;
+    margin:auto;
+    max-width:1440px;
+    padding:0 100px ;
+    font-weight:400;
+}
+header{
+    margin-top:50px;
+    margin-bottom:25px;
+    fill:#D04F4F;
+    color:#D04F4F;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight:bold;
+}
+h1{
+    font-size:36px;
+}
+label{
+    display:block;
+    background-color: red;
+    position:relative;
+    height:69px;
+    width:100%;
+}
+#searchBar{
+    position:relative;
+    height:69px;
+    width:100%;
+    margin-bottom:50px;
+}
+#searchBar input::placeholder{
+    opacity:0.25;
+}
+#searchBar input{
+    border-radius: 5px;;
+    width:100%;
+    height:100%;
+    background-color: #E7E7E7;
+    font-size:18px;
+    padding-left:25px;
+    border:none;
+}
+.search_icon{
+    background-color: inherit;
+    border:none;
+    position:absolute;
+    top:0px;
+    transform: translateY(50%);
+    right:20px;
+}
+
+/* FILTER */
+ 
+#filtersList{
+    display:flex;
+    gap : 20px;
+    position:relative;
+}
+.filterWrapper
+{
+    width:170px;
+    height:fit-content;
+    border-radius:5px;
+    color:white;
+    position:relative;
+}
+.blueBack{
+    background-color:#3282f7
+}
+.greenBack{
+    background-color:#68D9A4;
+}
+.orangeBack{
+    background-color:#ED6454
+}
+.searchItem{
+    display:flex;
+    width:100%;
+}
+.expanded{
+    flex:1;
+}
+.searchItemInput{
+    background-color: inherit;
+    outline: none;
+    border:none;
+    padding-left:10px;
+    width:100%;
+    height:70px;
+    font-weight:bold;
+    color:white;
+}
+
+.searchItemInput::placeholder{
+    color:white;
+    font-weight:bold;
+}
+.arrow{
+    width:35px;
+    height:70px;
+}
+.arrow:hover{
+    background-color: #ffffff4f;
+    cursor:pointer;
+}
+.arrow::after{
+    content:"";
+    position:absolute;
+    border-left:2px solid white;
+    border-top:2px solid white;
+    width: 10px;
+    height:10px;
+    top:28px;
+    right:12px;
+    transform:rotate(-135deg)
+}
+.expanded .arrow::after{
+    transform:rotate(45deg)
+}
+.itemList{
+    background-color: inherit;
+    width:100%;
+    padding-left:10px;
+    top:calc(100% - 5px);
+    position:absolute;
+    line-height:20px;
+    max-height:285px;
+    overflow-y: scroll;
+    border-radius:5px;
+    display:none;
+    row-gap:8px;
+}
+
+.itemList li{
+    width:fit-content;
+    padding-right: 10px;
+    display:flex;
+    align-items: center;
+}
+.itemList li:hover{
+    cursor:pointer;
+    background-color: #ffffff4f;
+}
+.expanded .itemList{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom:20px;
+}
+.expanded{
+    flex:1;
+}
+
+#thumbnailsContain{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:20px;
+}
+.thumbnails{
+    display:flex;
+    width :107px;
+    height:37px;
+    justify-content: space-between;
+    padding:10px;
+    align-items: center;
+    border-radius: 5px;
+    outline:none;
+    border:none;
+    color:white;
+}
+
+.thumbnails :first-child{
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+.thumbnails img{
+    padding-left:3px;
+}
+
+.thumbnails:hover{
+    cursor:pointer;
+}
+
+/* MAIN RECIPES !*/
+main{
+    margin-top:80px;
+    align-items: center;
+    display:flex;
+    flex-wrap:wrap;
+    gap:50px;
+}
+
+figure{
+    display:flex;
+    flex-direction: column;
+    border-radius :5px;
+    width:380px;
+    height:364px;
+    overflow:hidden;
+}
+figure img{
+    height:178px;
+    border-radius:5px 5px 0 0;
+    object-fit: cover;
+    vertical-align:bottom;
+}
+figcaption{
+    padding:25px;
+    padding-bottom:50px;
+    height:186px;
+    background-color : #E7E7E7;
+    border-radius:0 0 5px 5px;
+    display:flex;
+    flex-direction: column;
+}
+figcaption h3{
+    min-width:100%;
+    font-size:18px;
+    font-weight:400;
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:25px;
+}
+h3 span{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width:60%;
+}
+h3 div{
+    font-weight:bold;
+    display:flex;
+    align-items: center;
+    gap:10px;
+
+}
+.recipe{
+    display:flex;
+}
+.ingredient_list{
+    white-space: nowrap;
+    font-size:12px;
+    padding-right:8px;
+    display:flex;
+    flex-direction: column;
+}
+.bold{
+    font-weight:bold;
+}
+.recipe p{
+    display: -webkit-box;
+    font-family:'roboto',arial;
+    font-size:12px;
+    white-space: normal;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+
+
+
+/* MISC */
+.hidden,.filter ul.hidden,.itemList li.hidden{
+    display:none;
+}
+.chevronDown{
+    transform:rotate(180deg)
+}
