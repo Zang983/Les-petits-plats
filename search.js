@@ -23,7 +23,6 @@ export default class Search {
         }
         this.updatedList = []
         for (let recipe of this.originalList) {
-            console.log(recipe)
             if (this.checkIngredient(recipe) || this.ingredientFilters.length === 0) {
                 if (this.checkUstensils(recipe) || this.ustensilFilters.length === 0) {
                     if (this.checkAppliance(recipe) || this.applianceFilters.length != 1) {
