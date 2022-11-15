@@ -42,7 +42,6 @@ export function createCards(recipesList) {
                     troncatedUnit = unit
                     break;
             }
-            console.log(unit)
             li.innerHTML = `<span class="bold">${ingredient.ingredient} : </span> <span title=${unit}>${quantity} ${troncatedUnit}</span>`
             ul.append(li)
         }
