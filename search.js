@@ -54,12 +54,11 @@ export default class Search {
      */
     applySearchBar(value) {
         let list = this.updatedList.filter(item => {
-            let explodeIngredients = Object.values(item.ingredients)
             let ingredients = []
-            for (let item of explodeIngredients) {
-                ingredients.push(item.ingredient.toLowerCase())
+            for (let entry of item.ingredients) {
+                ingredients.push(entry.ingredient.toLowerCase())
             }
-            if (item.name.toLowerCase().includes(value) || item.description.toLowerCase().includes(value) || ingredients.toString().toLowerCase().includes(value)) {
+            if (item.name.toLowerCase().includes(value) || item.description.toLowerCase().includes(value) || ingredients.toString().includes(value)) {
                 return 1
             }
             return 0
