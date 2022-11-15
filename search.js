@@ -49,15 +49,10 @@ export default class Search {
     /**
      * Check for each recipe if value on search bar is includes in name, description or ingredients
      * @param {string} value 
-     * @param {recipeObject} recipe 
-     * @returns 
+     * @param {recipeListObject} recipe 
+     * @returns {recipeListObjectFiltered}
      */
     applySearchBar(value) {
-        // let list = this.updatedList.filter(item =>
-        //      item.name.toLowerCase().includes(value) 
-        // ||   item.description.toLowerCase().includes(value)
-        // ||    Object.values(item.ingredients).toLowerCase().includes(value))
-        //  return list
         let list = this.updatedList.filter(item => {
             let explodeIngredients = Object.values(item.ingredients)
             let ingredients = []
@@ -67,8 +62,8 @@ export default class Search {
             if (item.name.toLowerCase().includes(value) || item.description.toLowerCase().includes(value) || ingredients.toString().toLowerCase().includes(value)) {
                 return 1
             }
+            return 0
         })
-
         return list
     }
     /**
