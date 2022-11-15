@@ -23,15 +23,18 @@ export default class Search {
         }
         this.updatedList = []
         for (let recipe of this.originalList) {
+            console.log(recipe)
             if (this.checkIngredient(recipe) || this.ingredientFilters.length === 0) {
                 if (this.checkUstensils(recipe) || this.ustensilFilters.length === 0) {
                     if (this.checkAppliance(recipe) || this.applianceFilters.length != 1) {
-                        if (this.applySearchBar(valueSearchBar, recipe)) {
-                            this.updatedList.push(recipe)
-                        }
+                        this.updatedList.push(recipe)
                     }
                 }
             }
+        }
+
+        if (valueSearchBar != "") {
+            this.updatedList = this.applySearchBar(valueSearchBar, this.updatedList)
         }
         /*
         after create the new list of recipe, update arrays and dom
@@ -49,21 +52,20 @@ export default class Search {
      * @param {recipeObject} recipe 
      * @returns 
      */
-    applySearchBar(value, recipe) {
-        if (value === "" || value === undefined) {
-            return true
+    applySearchBar(value, filteredList) {
+        let list = []
+        for (let recipe of filteredList) {
+            let ingredients = []
+            for (let ingredient of recipe.ingredients) {
+                ingredients.push(ingredient.ingredient.toLowerCase())
+            }
+            if (recipe.name.toLowerCase().includes(value) || recipe.description.toLowerCase().includes(value) || ingredients.toString().toLowerCase().includes(value)) {
+                list.push(recipe)
+            }
         }
-        let description = recipe.description.toLowerCase()
-        let ingredientRecipe = []
-        for (let ingredient of recipe.ingredients) {
-            ingredientRecipe.push(ingredient.ingredient.toLowerCase())
-        }
-        let name = recipe.name.toLowerCase()
-        if (name.includes(value) || description.includes(value) || ingredientRecipe.indexOf(value) != -1) {
-            return true
-        }
-        return false
+        return list
     }
+    
     /**
      * This 3 functions will check if each item on filters Array are present on each recipe
      * @param {objectRecipe} recipe 
@@ -232,7 +234,7 @@ export default class Search {
                 button.classList.add("greenBack")
         }
         let span = document.createElement("span")
-        span.innerText= firstLetterInCapital(item)
+        span.innerText = firstLetterInCapital(item)
         button.setAttribute("title", firstLetterInCapital(item))
         button.append(span)
         button.innerHTML += `<img src="./assets/images/closebtn.svg" alt="delete item filter">`
