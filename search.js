@@ -241,7 +241,7 @@ export default class Search {
         button.addEventListener("click", (e) => {
             this.removeFromList(item, contain)
             resetFilterInputValue()
-            e.path.length === 9 ? e.target.parentElement.remove() : e.target.remove()
+            e.target.tagName === "IMG" ? e.target.parentElement.remove() : e.target.remove()
         })
     }
 }
