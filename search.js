@@ -18,7 +18,6 @@ export default class Search {
      * @param {string} valueSearchBar 
      */
     applyFilters(valueSearchBar) {
-        let i = 0
         if (valueSearchBar === undefined || valueSearchBar === null) {
             valueSearchBar = document.querySelector("#searchBar input").value.trim().toLowerCase()
         }
@@ -142,7 +141,7 @@ export default class Search {
                 li.setAttribute("data-name", item)
                 li.innerText = firstLetterInCapital(item)
                 targetblock.append(li)
-                li.addEventListener("click", e => {
+                li.addEventListener("click", ()=> {
                     resetFilterInputValue()
                     this.addItemFilter(item, contain)
                     this.createThumbnails(item, contain)
@@ -241,7 +240,7 @@ export default class Search {
         button.addEventListener("click", (e) => {
             this.removeFromList(item, contain)
             resetFilterInputValue()
-            e.path.length === 9 ? e.target.parentElement.remove() : e.target.remove()
+            e.target.tagName === "IMG" ? e.target.parentElement.remove() : e.target.remove()
         })
     }
 }
