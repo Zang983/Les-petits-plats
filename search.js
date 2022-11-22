@@ -142,7 +142,7 @@ export default class Search {
                 li.setAttribute("data-name", item)
                 li.innerText = firstLetterInCapital(item)
                 targetblock.append(li)
-                li.addEventListener("click", e => {
+                li.addEventListener("click", () => {
                     resetFilterInputValue()
                     this.addItemFilter(item, contain)
                     this.createThumbnails(item, contain)
@@ -191,6 +191,7 @@ export default class Search {
         }
         this.applyFilters()
     }
+    
     removeFromList(itemName, type) {
         switch (type) {
             case ("#ingredients"):
@@ -216,8 +217,11 @@ export default class Search {
         }
         this.applyFilters()
     }
-
-
+    /**
+     * 
+     * @param {string} item item name
+     * @param {string} contain id's object's list
+     */
     createThumbnails(item, contain) {
         let target = document.querySelector("#thumbnailsContain")
         let button = document.createElement("button")
