@@ -32,13 +32,6 @@ header{
 h1{
     font-size:36px;
 }
-label{
-    display:block;
-    background-color: red;
-    position:relative;
-    height:69px;
-    width:100%;
-}
 #searchBar{
     position:relative;
     height:69px;
@@ -75,11 +68,13 @@ label{
 }
 .filterWrapper
 {
+    min-width:170px;
     width:170px;
     height:fit-content;
     border-radius:5px;
     color:white;
     position:relative;
+    transition:all ease-in-out 0.4s;
 }
 .blueBack{
     background-color:#3282f7
@@ -97,6 +92,7 @@ label{
 .expanded{
     flex:1;
 }
+
 .searchItemInput{
     background-color: inherit;
     outline: none;
@@ -106,6 +102,8 @@ label{
     height:70px;
     font-weight:bold;
     color:white;
+    font-family:lato,arial;
+    font-size:18px;
 }
 
 .searchItemInput::placeholder{
@@ -115,6 +113,7 @@ label{
 .arrow{
     width:35px;
     height:70px;
+    
 }
 .arrow:hover{
     background-color: #ffffff4f;
@@ -122,6 +121,7 @@ label{
 }
 .arrow::after{
     content:"";
+    transition:all ease-in-out 0.4s;
     position:absolute;
     border-left:2px solid white;
     border-top:2px solid white;
@@ -141,11 +141,12 @@ label{
     top:calc(100% - 5px);
     position:absolute;
     line-height:20px;
-    max-height:285px;
+    max-height:280px;
     overflow-y: scroll;
     border-radius:5px;
     display:none;
     row-gap:8px;
+    font-size:18px;
 }
 
 .itemList li{
@@ -275,8 +276,6 @@ h3 div{
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
 }
-
-
 
 /* MISC */
 .hidden,.filter ul.hidden,.itemList li.hidden{
