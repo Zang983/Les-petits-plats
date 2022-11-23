@@ -1,17 +1,3 @@
-/*
-Modifier le CSS
-Ajouter un message s'il n'y'a pas de résultat
-Faire les events de button filters pour l'ouverture des menus.
-Modifier le fonctionnement du bouton de chaque filtre :
-    L'input doit être actif tout le temps
-    La fleche a droite permet soit de déplier la liste complète si l'input est vide
-    la flche a droite servira de reset l'input si une saisie est faite.
-
-    si on déplie la liste appliquer la class extanded la div <filter>
-    sinon mettre tout les li en hidden sauf ceux correspondant à la recherche.
-
-*/
-
 import Search from './search.js'
 import { recipes } from './data/recipes.js'
 
